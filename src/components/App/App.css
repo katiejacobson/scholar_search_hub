@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.page {
+  background-color: #f3f3f3;
+  font-family: "Inter Regular", Arial, sans-serif;
+  font-style: normal;
+  line-height: 1.2;
+  font-size: 20px;
+  color: #000000;
+}
+
+.page__content {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
