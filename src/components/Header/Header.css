@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+
+  padding: 32px 0 28px;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: solid;
+  border-color: #cfcfcf;
+  margin: 0 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header__logo {
+  height: 100px;
+  width: 100px;
+}
+
+.header__title {
+  font-size: 26px;
+  font-family: "Inter Bold";
+  color: #ffffff;
+}
+
+.header__button-container {
+}
+
+.header__button {
+  height: 60px;
+  width: 130px;
+  color: #00b1b7;
+  text-align: center;
+  margin-right: 18px;
+  border-color: #00b1b7;
+  border-radius: 30px;
+  border-style: solid;
+}
