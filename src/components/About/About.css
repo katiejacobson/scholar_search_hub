@@ -1,0 +1,22 @@
+.about__container {
+  display: flex;
+  margin: 0 160px;
+  column-gap: 100px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  align-items: center;
+}
+
+.about__profile-image {
+  width: 340px;
+  height: 305px;
+  border-radius: 50%;
+}
+
+.about__profile-name {
+  font-size: 36px;
+}
+
+.about__profile-info {
+  font-size: 18px;
+}
