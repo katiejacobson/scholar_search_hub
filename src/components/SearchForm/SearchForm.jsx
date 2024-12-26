@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearchSubmit }) {
+function SearchForm({ onSearchSubmit, articleIndex, setArticleIndex }) {
   let searchterm;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Inside handleSubmit");
-    console.log(keyword.value);
     onSearchSubmit(keyword.value);
+    keyword.value = "";
+    setArticleIndex(3);
   };
 
   return (

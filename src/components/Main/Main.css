@@ -1,3 +1,35 @@
 .main__container {
   margin: 15px 30px;
 }
+
+.main__server-error-message {
+  font-size: 26px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards__text {
+  margin-left: 30px;
+  font-size: 26px;
+  font-family: "Inter-Bold";
+  font-weight: bold;
+}
+
+.cards__text-articlecount {
+  color: #00b1b7;
+}
+
+.cards__button-show-more {
+  height: 60px;
+  width: 130px;
+  color: #00b1b7;
+  text-align: center;
+  margin: 0 auto;
+  border-color: #00b1b7;
+  border-radius: 30px;
+  border-style: solid;
+  cursor: pointer;
+}

@@ -13,14 +13,18 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [totalArticles, setTotalArticles] = useState(0);
   const [serverError, setServerError] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [articleIndex, setArticleIndex] = useState(3);
+  const [searchterm, setSearchTerm] = useState("");
 
-  const searchArticles = (searchterm, APIkey) => {
+  const searchArticles = (keyword, APIkey) => {
+    setSearchTerm(keyword);
     setIsLoading(true);
-    getArticles(searchterm, APIkey)
+    getArticles(keyword, APIkey)
       .then((res) => {
         console.log(res);
-        if (res == 500) {
+        if (res === 500) {
           console.log("server error");
           setIsLoading(false);
           setServerError(true);
@@ -28,7 +32,12 @@ function App() {
           setServerError(false);
           const articleResults = processArticles(res.results);
           setArticles(articleResults);
-          setTotalArticles(res.totalHits);
+          if (res.totalHits > 0) {
+            setTotalArticles(res.totalHits);
+            setNotFound(false);
+          } else {
+            setNotFound(true);
+          }
           setIsLoading(false);
         }
       })
@@ -46,14 +55,22 @@ function App() {
         <div className="page__content">
           <div className="page__image_top">
             <Header />
-            <SearchForm onSearchSubmit={handleSearchSubmit} />
+            <SearchForm
+              onSearchSubmit={handleSearchSubmit}
+              articleIndex={articleIndex}
+              setArticleIndex={setArticleIndex}
+            />
           </div>
           <div>
             <Main
               articles={articles}
               totalArticles={totalArticles}
+              searchterm={searchterm}
               serverError={serverError}
+              notFound={notFound}
               isLoading={isLoading}
+              articleIndex={articleIndex}
+              setArticleIndex={setArticleIndex}
             />
           </div>
           <div>
