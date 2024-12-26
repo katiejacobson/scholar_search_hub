@@ -1,0 +1,7 @@
+.card {
+  display: flex;
+  border-style: solid;
+  border-color: #000000;
+  padding: 30px;
+  margin-bottom: 15px;
+}
