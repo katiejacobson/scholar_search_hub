@@ -6,7 +6,7 @@ import ArticleCard from "../ArticleCard/ArticleCard.jsx";
 import Preloader from "../Preloader/Preloader.jsx";
 
 function Main({
-  articles,
+  searchedArticles,
   totalArticles,
   searchterm,
   serverError,
@@ -14,6 +14,7 @@ function Main({
   articleIndex,
   setArticleIndex,
   notFound,
+  isLoggedIn,
 }) {
   const logInfo = (info) => {
     console.log(info);
@@ -38,7 +39,7 @@ function Main({
         <Preloader />
       ) : notFound ? (
         <p>There are no results found.</p>
-      ) : articles.length > 0 ? (
+      ) : searchedArticles.length > 0 ? (
         <section className="cards">
           <p className="cards__text">
             There are{" "}
@@ -47,15 +48,21 @@ function Main({
             <span className="cards__text-articlecount">{searchterm}.</span>{" "}
           </p>
           <ul className="itemcards">
-            {articles.length > 0 &&
-              articles
+            {searchedArticles.length > 0 &&
+              searchedArticles
                 .filter((item, index) => {
                   if (index < articleIndex) {
                     return item;
                   }
                 })
                 .map((item, index) => {
-                  return <ArticleCard key={index} item={item} />;
+                  return (
+                    <ArticleCard
+                      key={index}
+                      item={item}
+                      isLoggedIn={isLoggedIn}
+                    />
+                  );
                 })}
           </ul>
           <button

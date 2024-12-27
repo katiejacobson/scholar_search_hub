@@ -44,3 +44,20 @@
   color: #ffff;
   cursor: pointer;
 }
+
+.card__button-add-article {
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  width: 168px;
+  height: 64px;
+  border-radius: 30px;
+  background-color: #00b1b7;
+  color: #ffff;
+  cursor: pointer;
+}
+
+.card__button-add-article_hidden {
+  visibility: hidden;
+}

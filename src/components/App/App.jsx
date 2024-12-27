@@ -9,12 +9,16 @@ import About from "../About/About.jsx";
 import Footer from "../Footer/Footer.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
+import AddArticleModal from "../AddArticleModal/AddArticleModal.jsx";
 
 import { getArticles, processArticles } from "../../utils/coreAPI.js";
 import { APIkey } from "../../utils/constants.js";
 
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
+
 function App() {
-  const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
+  const [searchedArticles, setSearchedArticles] = useState([]);
   const [totalArticles, setTotalArticles] = useState(0);
   const [serverError, setServerError] = useState(false);
   const [notFound, setNotFound] = useState(false);
@@ -23,15 +27,28 @@ function App() {
   const [searchterm, setSearchTerm] = useState("");
   const [activeModal, setActiveModal] = useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    _id: "",
+  });
+  const [savedArticles, setSavedArticles] = useState([]);
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
 
   const handleSignUpClick = () => {
     setActiveModal("register");
   };
 
   const handleLogInClick = () => {
-    console.log("click");
     setActiveModal("login");
+  };
+
+  const handleAddArticleClick = () => {
+    console.log("click");
+    setActiveModal("add-article");
   };
 
   const handleRegistration = ({ email, password, name, avatar }) => {
@@ -58,8 +75,26 @@ function App() {
     //   .catch(console.error);
   };
 
-  const closeActiveModal = () => {
-    setActiveModal("");
+  const handleLogOut = () => {
+    // localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser({
+      name: "",
+      avatar: "",
+      _id: "",
+    });
+    navigate("/");
+  };
+
+  const handleAddArticleSubmit = (e, values) => {
+    // addItems(values)
+    //   .then((res) => {
+    //     setSavedArticles([res, ...savedArticles]);
+    //     closeActiveModal();
+    //   })
+    //   .catch(console.error);
+    setSavedArticles(values, ...savedArticles);
+    console.log(savedArticles);
   };
 
   const searchArticles = (keyword, APIkey) => {
@@ -75,7 +110,7 @@ function App() {
         } else {
           setServerError(false);
           const articleResults = processArticles(res.results);
-          setArticles(articleResults);
+          setSearchedArticles(articleResults);
           if (res.totalHits > 0) {
             setTotalArticles(res.totalHits);
             setNotFound(false);
@@ -121,14 +156,17 @@ function App() {
   }, [activeModal]);
 
   return (
-    <>
+    <CurrentUserContext.Provider
+      value={{ currentUser, isLoggedIn, setIsLoggedIn }}
+    >
       <div className="page">
         <div className="page__content">
           <div className="page__image_top">
             <Header
               handleSignUpClick={handleSignUpClick}
               handleLogInClick={handleLogInClick}
-              isLoggedIn={isLoggedIn}
+              handleLogOut={handleLogOut}
+              handleAddArticleClick={handleAddArticleClick}
             />
             <SearchForm
               onSearchSubmit={handleSearchSubmit}
@@ -141,7 +179,7 @@ function App() {
               path="/"
               element={
                 <Main
-                  articles={articles}
+                  searchedArticles={searchedArticles}
                   totalArticles={totalArticles}
                   searchterm={searchterm}
                   serverError={serverError}
@@ -149,6 +187,7 @@ function App() {
                   isLoading={isLoading}
                   articleIndex={articleIndex}
                   setArticleIndex={setArticleIndex}
+                  isLoggedIn={isLoggedIn}
                 />
               }
             />
@@ -169,9 +208,15 @@ function App() {
             handleLogIn={handleLogIn}
             handleSignUpClick={handleSignUpClick}
           />
+          <AddArticleModal
+            activeModal={activeModal}
+            handleCloseClick={closeActiveModal}
+            onAddArticle={handleAddArticleSubmit}
+            closeActiveModal={closeActiveModal}
+          />
         </div>
       </div>
-    </>
+    </CurrentUserContext.Provider>
   );
 }
 

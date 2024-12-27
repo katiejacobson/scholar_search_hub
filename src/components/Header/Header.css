@@ -9,7 +9,7 @@
   justify-content: space-between;
   width: 100%;
   border-bottom: solid;
-  border-color: #cfcfcf;
+  border-color: rgba(207, 207, 207, 0.5);
   margin: 0 40px;
 }
 
@@ -40,4 +40,36 @@ a {
   border-color: #00b1b7;
   border-radius: 30px;
   border-style: solid;
+}
+
+.header__button_transparent {
+  height: 60px;
+  width: 130px;
+  color: #fff;
+  margin-right: 18px;
+  border-color: #fff;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.header__button-image {
+  height: 24px;
+  width: 24px;
+}
+
+.header__loggedin-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.header__loggedin-home {
+  padding-bottom: 20px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207);
 }

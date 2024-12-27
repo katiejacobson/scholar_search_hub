@@ -1,6 +1,15 @@
 import "./ArticleCard.css";
+import { useContext } from "react";
+
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 function ArticleCard({ item }) {
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+
+  const addButtonClassName = `card__button-add-article ${
+    isLoggedIn ? "card__button-add-article" : "card__button-add-article_hidden"
+  }`;
+
   const logInfo = (info) => {
     console.log(info);
   };
@@ -22,6 +31,14 @@ function ArticleCard({ item }) {
             aria-label="open"
           >
             Open Article
+          </button>
+          <button
+            className={addButtonClassName}
+            type="button"
+            id="card__add-article"
+            aria-label="add"
+          >
+            Add Article
           </button>
         </a>
       </div>
