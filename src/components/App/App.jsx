@@ -10,9 +10,12 @@ import Footer from "../Footer/Footer.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import AddArticleModal from "../AddArticleModal/AddArticleModal.jsx";
+import Profile from "../Profile/Profile.jsx";
 
 import { getArticles, processArticles } from "../../utils/coreAPI.js";
 import { APIkey } from "../../utils/constants.js";
+
+import { getSavedArticles, saveArticle } from "../../utils/api.js";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
@@ -33,6 +36,7 @@ function App() {
     _id: "",
   });
   const [savedArticles, setSavedArticles] = useState([]);
+  const [inProfile, setInProfile] = useState(false);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -155,25 +159,34 @@ function App() {
     };
   }, [activeModal]);
 
+  useEffect(() => {
+    getSavedArticles()
+      .then((res) => {
+        console.log(res);
+        setSavedArticles(res);
+      })
+      .catch(console.lerror);
+  }, []);
+
   return (
     <CurrentUserContext.Provider
-      value={{ currentUser, isLoggedIn, setIsLoggedIn }}
+      value={{
+        currentUser,
+        isLoggedIn,
+      }}
     >
       <div className="page">
         <div className="page__content">
-          <div className="page__image_top">
-            <Header
-              handleSignUpClick={handleSignUpClick}
-              handleLogInClick={handleLogInClick}
-              handleLogOut={handleLogOut}
-              handleAddArticleClick={handleAddArticleClick}
-            />
-            <SearchForm
-              onSearchSubmit={handleSearchSubmit}
-              articleIndex={articleIndex}
-              setArticleIndex={setArticleIndex}
-            />
-          </div>
+          <Header
+            handleSignUpClick={handleSignUpClick}
+            handleLogInClick={handleLogInClick}
+            handleLogOut={handleLogOut}
+            handleAddArticleClick={handleAddArticleClick}
+            handleSearchSubmit={handleSearchSubmit}
+            articleIndex={articleIndex}
+            setArticleIndex={setArticleIndex}
+            inProfile={inProfile}
+          />
           <Routes>
             <Route
               path="/"
@@ -188,11 +201,22 @@ function App() {
                   articleIndex={articleIndex}
                   setArticleIndex={setArticleIndex}
                   isLoggedIn={isLoggedIn}
+                  inProfile={inProfile}
+                />
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Profile
+                  savedArticles={savedArticles}
+                  setInProfile={setInProfile}
+                  inProfile={inProfile}
                 />
               }
             />
           </Routes>
-          <About />
+          <About inProfile={inProfile} />
           <Footer />
           <RegisterModal
             activeModal={activeModal}

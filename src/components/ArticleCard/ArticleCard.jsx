@@ -3,15 +3,24 @@ import { useContext } from "react";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
-function ArticleCard({ item }) {
+function ArticleCard({ item, inProfile }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const addButtonClassName = `card__button-add-article ${
-    isLoggedIn ? "card__button-add-article" : "card__button-add-article_hidden"
+    isLoggedIn && !inProfile
+      ? "card__button-add-article"
+      : "card__button-add-article_hidden"
+  }`;
+
+  const deleteButtonClassName = `card__button-delete-article ${
+    isLoggedIn && inProfile
+      ? "card__button-delete-article"
+      : "card__button-delete-article_hidden"
   }`;
 
   const logInfo = (info) => {
     console.log(info);
+    console.log(inProfile);
   };
 
   return (
@@ -32,15 +41,28 @@ function ArticleCard({ item }) {
           >
             Open Article
           </button>
-          <button
-            className={addButtonClassName}
-            type="button"
-            id="card__add-article"
-            aria-label="add"
-          >
-            Add Article
-          </button>
         </a>
+        <div>
+          {!inProfile ? (
+            <button
+              className={addButtonClassName}
+              type="button"
+              id="card__add-article"
+              aria-label="add"
+            >
+              Save Article
+            </button>
+          ) : (
+            <button
+              className={deleteButtonClassName}
+              type="button"
+              id="card__delete-article"
+              aria-label="delete"
+            >
+              Delete Article
+            </button>
+          )}
+        </div>
       </div>
     </li>
   );

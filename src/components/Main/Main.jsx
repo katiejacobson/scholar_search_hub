@@ -1,6 +1,8 @@
 import "./Main.css";
 import { useState } from "react";
 import React from "react";
+import About from "../About/About.jsx";
+import SearchForm from "../SearchForm/SearchForm.jsx";
 
 import ArticleCard from "../ArticleCard/ArticleCard.jsx";
 import Preloader from "../Preloader/Preloader.jsx";
@@ -15,10 +17,11 @@ function Main({
   setArticleIndex,
   notFound,
   isLoggedIn,
+  inProfile,
 }) {
   const logInfo = (info) => {
     console.log(info);
-    console.log(serverError);
+    console.log(inProfile);
   };
 
   const advanceArticleIndex = () => {
@@ -27,9 +30,6 @@ function Main({
 
   return (
     <main className="main__container">
-      <div>
-        <h2>This is the Main section</h2>
-      </div>
       {serverError ? (
         <p className="main__server-error-message">
           Sorry, something went wrong during the request. There may be a
@@ -61,6 +61,7 @@ function Main({
                       key={index}
                       item={item}
                       isLoggedIn={isLoggedIn}
+                      inProfile={inProfile}
                     />
                   );
                 })}

@@ -1,6 +1,27 @@
+a:visited {
+  color: inherit;
+}
+
 .header {
   display: flex;
   padding: 32px 0 28px;
+}
+
+.header__image-top {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/ScholarSearchHubHeader.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  max-height: 576px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1;
+
+  color: white;
 }
 
 .header__container {
@@ -72,4 +93,56 @@ a {
   padding-bottom: 20px;
   border-bottom: solid;
   border-color: rgba(207, 207, 207);
+}
+
+.header__profile {
+  display: flex;
+  padding: 32px 0 28px;
+}
+
+.header__title-profile {
+  color: #000;
+  font-size: 26px;
+  font-family: "Inter Bold";
+}
+
+.header__button-profile {
+  height: 60px;
+  width: 130px;
+  color: #00b1b7;
+  text-align: center;
+  margin-right: 18px;
+  border-color: #00b1b7;
+  border-radius: 30px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.header__loggedin-info-profile {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  color: #000;
+}
+
+.header__loggedin-saved-profile {
+  padding-bottom: 20px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207);
+}
+
+.header__button_transparent-profile {
+  height: 60px;
+  width: 130px;
+  color: #000;
+  margin-right: 18px;
+  border-color: #000;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
 }

@@ -1,0 +1,12 @@
+.profiletopbar__container {
+  margin: 15px 60px;
+  width: 530px;
+}
+
+.profiletopbar__title {
+  color: rgba(207, 207, 207);
+}
+
+.profiletopbar__text {
+  font-size: 40px;
+}

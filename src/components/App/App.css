@@ -14,22 +14,18 @@
   /* padding: 0 20px; */
 }
 
-.page__image_top {
-  /* background-color: #ffffff; */
+/* .page__image_top {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../assets/ScholarSearchHubHeader.jpg");
-  /* background-image: url("../../assets/ScholarSearchHubHeader.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   max-height: 576px;
-  /* padding: 30px 80px 40px; */
   display: flex;
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
   z-index: 1;
-
   color: white;
-}
+} */
