@@ -18,6 +18,7 @@ function Main({
   notFound,
   isLoggedIn,
   inProfile,
+  addSavedArticle,
 }) {
   const logInfo = (info) => {
     console.log(info);
@@ -62,6 +63,7 @@ function Main({
                       item={item}
                       isLoggedIn={isLoggedIn}
                       inProfile={inProfile}
+                      addSavedArticle={addSavedArticle}
                     />
                   );
                 })}

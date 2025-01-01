@@ -14,8 +14,13 @@ import Profile from "../Profile/Profile.jsx";
 
 import { getArticles, processArticles } from "../../utils/coreAPI.js";
 import { APIkey } from "../../utils/constants.js";
+import * as auth from "../../utils/auth.js";
 
-import { getSavedArticles, saveArticle } from "../../utils/api.js";
+import {
+  getSavedArticles,
+  saveArticle,
+  deleteArticle,
+} from "../../utils/api.js";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
@@ -55,12 +60,13 @@ function App() {
     setActiveModal("add-article");
   };
 
-  const handleRegistration = ({ email, password, name, avatar }) => {
+  const handleRegistration = ({ email, password, name }) => {
     console.log("inside handle registration");
-    // auth
-    //   .register(email, password, name, avatar)
-    //   .then(() => handleLogInClick())
-    //   .catch(console.error);
+    debugger;
+    auth
+      .register(email, password, name)
+      .then(() => handleLogInClick())
+      .catch(console.error);
   };
 
   const handleLogIn = ({ email, password }) => {
@@ -97,8 +103,14 @@ function App() {
     //     closeActiveModal();
     //   })
     //   .catch(console.error);
-    setSavedArticles(values, ...savedArticles);
-    console.log(savedArticles);
+    saveArticle(values)
+      .then((res) => {
+        console.log("inSaveArticle");
+        console.log(res);
+        setSavedArticles([res, ...savedArticles]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   const searchArticles = (keyword, APIkey) => {
@@ -130,6 +142,24 @@ function App() {
   const handleSearchSubmit = (value) => {
     console.log(value);
     searchArticles(value, APIkey);
+  };
+
+  const addSavedArticle = (article) => {
+    saveArticle(article)
+      .then((res) => {
+        setSavedArticles([res, ...savedArticles]);
+      })
+      .catch(console.error);
+  };
+
+  const deleteSavedArticle = (id) => {
+    // deleteArticle(id).then((res) => {setSavedArticles([res, ...savedArticles]);
+    // })
+    // .catch(console.error);
+    const updatedArticles = savedArticles.filter(
+      (article) => article.id !== id
+    );
+    setSavedArticles(updatedArticles);
   };
 
   useEffect(() => {
@@ -202,6 +232,7 @@ function App() {
                   setArticleIndex={setArticleIndex}
                   isLoggedIn={isLoggedIn}
                   inProfile={inProfile}
+                  addSavedArticle={addSavedArticle}
                 />
               }
             />
@@ -212,6 +243,8 @@ function App() {
                   savedArticles={savedArticles}
                   setInProfile={setInProfile}
                   inProfile={inProfile}
+                  addSavedArticle={addSavedArticle}
+                  deleteSavedArticle={deleteSavedArticle}
                 />
               }
             />

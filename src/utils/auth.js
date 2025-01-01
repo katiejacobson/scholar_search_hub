@@ -1,3 +1,7 @@
+export const register = (email, password, name) => {
+  console.log("user registered");
+};
+
 export const authorize = (email, password) => {
   // Pretend we did a fetch request that gave us back a token
   return new Promise((resolve, reject) => {

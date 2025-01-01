@@ -55,15 +55,24 @@ export function getSavedArticles() {
 }
 
 export function saveArticle(article) {
-  // article is a result from the NewsAPI
+  // article is a result from the CoreAPI
   return new Promise((resolve, reject) => {
     resolve({
-      id: "65f7371e7bce9e7d331b11a0", // another one made up from the generator
-      url: article,
-      url, // Use whatever properties the newsAPI gives you, I just made these up
+      id: article.id, // another one made up from the generator
+      abstract: article.abstract,
+      authors: article.authors,
+      createdDate: article.createdDate,
+      doi: article.doi,
+      downloadUrl: article.downloadUrl,
       title: article.title,
-      imageUrl: article.imagUrl,
-      // whatever other properties from the newsAPI-given article object you saved to the database
+    });
+  });
+}
+
+export function deleteArticle(article) {
+  return new Promise((resolve, reject) => {
+    resolve({
+      id: article.id, // another one made up from the generator
     });
   });
 }

@@ -3,8 +3,18 @@ import { useContext } from "react";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
-function ArticleCard({ item, inProfile }) {
+function ArticleCard({ item, inProfile, addSavedArticle, deleteSavedArticle }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+
+  const handleSave = () => {
+    addSavedArticle(item);
+    alert("Article Saved");
+  };
+
+  const handleDelete = () => {
+    deleteSavedArticle(item.id);
+    alert("Article Deleted");
+  };
 
   const addButtonClassName = `card__button-add-article ${
     isLoggedIn && !inProfile
@@ -49,6 +59,7 @@ function ArticleCard({ item, inProfile }) {
               type="button"
               id="card__add-article"
               aria-label="add"
+              onClick={handleSave}
             >
               Save Article
             </button>
@@ -58,6 +69,7 @@ function ArticleCard({ item, inProfile }) {
               type="button"
               id="card__delete-article"
               aria-label="delete"
+              onClick={handleDelete}
             >
               Delete Article
             </button>

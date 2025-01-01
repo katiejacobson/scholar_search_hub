@@ -5,7 +5,13 @@ import ProfileTopBar from "../ProfileTopBar/ProfileTopBar.jsx";
 import ArticleSection from "../ArticleSection/ArticleSection.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
-function Profile({ savedArticles, setInProfile, inProfile }) {
+function Profile({
+  savedArticles,
+  setInProfile,
+  inProfile,
+  addSavedArticle,
+  deleteSavedArticle,
+}) {
   const markInProfile = () => {
     console.log(inProfile);
   };
@@ -24,7 +30,12 @@ function Profile({ savedArticles, setInProfile, inProfile }) {
         <ProfileTopBar savedArticles={savedArticles} />
       </section>
       <section>
-        <ArticleSection savedArticles={savedArticles} inProfile={inProfile} />
+        <ArticleSection
+          savedArticles={savedArticles}
+          inProfile={inProfile}
+          addSavedArticle={addSavedArticle}
+          deleteSavedArticle={deleteSavedArticle}
+        />
       </section>
     </div>
   );
