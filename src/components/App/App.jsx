@@ -14,7 +14,12 @@ import Profile from "../Profile/Profile.jsx";
 
 import { getArticles, processArticles } from "../../utils/coreAPI.js";
 import { APIkey } from "../../utils/constants.js";
-import * as auth from "../../utils/auth.js";
+import {
+  register,
+  authorize,
+  checkToken,
+  getUserInfo,
+} from "../../utils/auth.js";
 
 import {
   getSavedArticles,
@@ -35,7 +40,7 @@ function App() {
   const [searchterm, setSearchTerm] = useState("");
   const [activeModal, setActiveModal] = useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: "",
     _id: "",
@@ -62,9 +67,7 @@ function App() {
 
   const handleRegistration = ({ email, password, name }) => {
     console.log("inside handle registration");
-    debugger;
-    auth
-      .register(email, password, name)
+    register(email, password, name)
       .then(() => handleLogInClick())
       .catch(console.error);
   };
@@ -73,20 +76,21 @@ function App() {
     if (!email || !password) {
       return;
     }
-    // auth
-    //   .authorize(email, password)
-    //   .then((data) => {
-    //     if (data.token) {
-    //       localStorage.setItem("jwt", data.token);
-    //       closeActiveModal();
-    //       setIsLoggedIn(true);
-    //     }
-    //   })
-    //   .catch(console.error);
+
+    authorize(email, password)
+      .then((data) => {
+        debugger;
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+          closeActiveModal();
+          setIsLoggedIn(true);
+        }
+      })
+      .catch(console.error);
   };
 
   const handleLogOut = () => {
-    // localStorage.removeItem("jwt");
+    localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser({
       name: "",
@@ -192,11 +196,29 @@ function App() {
   useEffect(() => {
     getSavedArticles()
       .then((res) => {
-        console.log(res);
         setSavedArticles(res);
       })
-      .catch(console.lerror);
+      .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+
+    if (!jwt) {
+      return;
+    }
+
+    getUserInfo(jwt)
+      .then(({ name, id }) => {
+        setIsLoggedIn(true);
+        setCurrentUser({
+          name: name,
+          id: id,
+        });
+        navigate("/");
+      })
+      .catch(console.error);
+  }, [isLoggedIn]);
 
   return (
     <CurrentUserContext.Provider

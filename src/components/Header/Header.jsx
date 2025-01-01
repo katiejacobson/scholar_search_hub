@@ -48,7 +48,8 @@ function Header({
                     className="header__button_transparent"
                     onClick={handleLogOut}
                   >
-                    Katie <img src={logout} className="header__button-image" />
+                    {currentUser.name}{" "}
+                    <img src={logout} className="header__button-image" />
                   </button>
                 </div>
               ) : (

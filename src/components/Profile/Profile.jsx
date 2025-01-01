@@ -13,7 +13,7 @@ function Profile({
   deleteSavedArticle,
 }) {
   const markInProfile = () => {
-    console.log(inProfile);
+    console.log(currentUser);
   };
 
   useEffect(() => {
