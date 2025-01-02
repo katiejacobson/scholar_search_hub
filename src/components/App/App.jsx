@@ -108,9 +108,8 @@ function App() {
     //   .catch(console.error);
     saveArticle(values)
       .then((res) => {
-        console.log("inSaveArticle");
-        console.log(res);
         setSavedArticles([res, ...savedArticles]);
+        alert("article added");
         closeActiveModal();
       })
       .catch(console.error);
