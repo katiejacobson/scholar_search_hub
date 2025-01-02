@@ -43,7 +43,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: "",
-    _id: "",
+    id: "",
   });
   const [savedArticles, setSavedArticles] = useState([]);
   const [inProfile, setInProfile] = useState(false);
@@ -79,7 +79,6 @@ function App() {
 
     authorize(email, password)
       .then((data) => {
-        debugger;
         if (data.token) {
           localStorage.setItem("jwt", data.token);
           closeActiveModal();
@@ -94,9 +93,9 @@ function App() {
     setIsLoggedIn(false);
     setCurrentUser({
       name: "",
-      avatar: "",
-      _id: "",
+      id: "",
     });
+    setSearchedArticles([]);
     navigate("/");
   };
 
@@ -209,11 +208,11 @@ function App() {
     }
 
     getUserInfo(jwt)
-      .then(({ name, id }) => {
+      .then((data) => {
         setIsLoggedIn(true);
         setCurrentUser({
-          name: name,
-          id: id,
+          name: data.user.name,
+          id: data.user.id,
         });
         navigate("/");
       })

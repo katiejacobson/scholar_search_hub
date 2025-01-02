@@ -21,7 +21,7 @@ function ModalForm({
           aria-label="close"
         />
         <h2 className="modal__heading">{title}</h2>
-        <form className="modal__form" name={name}>
+        <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
         </form>
       </div>

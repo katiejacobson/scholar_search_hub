@@ -1,11 +1,19 @@
 export const register = (email, password, name) => {
   console.log("user registered");
+  return new Promise((resolve, reject) => {
+    resolve({
+      data: { name: "Katie", email: "katie@example.com", id: "fake-id" },
+    });
+  });
 };
 
 export const authorize = (email, password) => {
   // Pretend we did a fetch request that gave us back a token
   return new Promise((resolve, reject) => {
-    resolve({ token: "a fake token" });
+    resolve({
+      token: "a fake token",
+      user: { name: "Katie", email: "katie@example.com", id: "fake-id" },
+    });
   });
 };
 
@@ -21,7 +29,7 @@ export const checkToken = (token) => {
 export const getUserInfo = (token) => {
   return new Promise((resolve, reject) => {
     resolve({
-      data: { name: "Katie", id: "fake-id" },
+      user: { name: "Katie", id: "fake-id" },
     });
   });
 };
