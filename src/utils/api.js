@@ -58,12 +58,12 @@ export function saveArticle(article) {
   // article is a result from the CoreAPI
   return new Promise((resolve, reject) => {
     resolve({
-      id: article.articleId, // another one made up from the generator
-      abstract: article.articleAbstract,
-      authors: article.articleAuthors,
-      createdDate: article.articleCreatedDate,
-      downloadUrl: article.articleDownloadUrl,
-      title: article.articleTitle,
+      id: article.id, // another one made up from the generator
+      abstract: article.abstract,
+      authors: article.authors,
+      createdDate: article.createdDate,
+      downloadUrl: article.downloadUrl,
+      title: article.title,
     });
   });
 }

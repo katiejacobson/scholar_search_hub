@@ -3,55 +3,54 @@ import React, { useState, useEffect } from "react";
 import ModalForm from "../ModalForm/ModalForm.jsx";
 
 function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
-  const [articleTitle, setArticleTitle] = useState("");
-  const [articleAuthors, setArticleAuthors] = useState("");
-  const [articleCreatedDate, setArticleCreatedDate] = useState("");
-  const [articleAbstract, setArticleAbstract] = useState("");
-  const [articleDownloadUrl, setArticleDownloadUrl] = useState("");
+  const [title, setTitle] = useState("");
+  const [authors, setAuthors] = useState("");
+  const [createdDate, setCreatedDate] = useState("");
+  const [abstract, setAbstract] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState("");
 
   const handleTitleChange = (e) => {
-    setArticleTitle(e.target.value);
+    setTitle(e.target.value);
   };
 
   const handleAuthorChange = (e) => {
-    setArticleAuthors(e.target.value);
+    setAuthors(e.target.value);
   };
 
   const handleCreatedDateChange = (e) => {
-    setArticleCreatedDate(e.target.value);
+    setCreatedDate(e.target.value);
   };
 
   const handleAbstractChange = (e) => {
-    setArticleAbstract(e.target.value);
+    setAbstract(e.target.value);
   };
 
   const handleDownloadUrlChange = (e) => {
-    setArticleDownloadUrl(e.target.value);
+    setDownloadUrl(e.target.value);
   };
 
-  const isFormValid =
-    articleTitle && articleAuthors && articleCreatedDate && articleDownloadUrl;
+  const isFormValid = title && authors && createdDate && downloadUrl;
 
   const handleSubmit = (e) => {
     console.log("click");
     e.preventDefault();
     onAddArticle(e, {
-      articleTitle,
-      articleAuthors,
-      articleCreatedDate,
-      articleAbstract,
-      articleDownloadUrl,
+      title,
+      authors,
+      createdDate,
+      abstract,
+      downloadUrl,
     });
   };
 
   useEffect(() => {
     if (!activeModal) return;
 
-    setArticleTitle("");
-    setArticleAuthors("");
-    setArticleCreatedDate("");
-    setArticleAbstract("");
-    setArticleDownloadUrl("");
+    setTitle("");
+    setAuthors("");
+    setCreatedDate("");
+    setAbstract("");
+    setDownloadUrl("");
   }, [activeModal]);
 
   return (
@@ -75,7 +74,7 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             required
             minLength="2"
             maxLength="40"
-            value={articleTitle}
+            value={title}
             onChange={handleTitleChange}
           />
         </label>
@@ -92,7 +91,7 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             minLength="2"
             maxLength="40"
             required
-            value={articleAuthors}
+            value={authors}
             onChange={handleAuthorChange}
           />
         </label>
@@ -109,7 +108,7 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             required
             minLength="2"
             maxLength="40"
-            value={articleCreatedDate}
+            value={createdDate}
             onChange={handleCreatedDateChange}
           />
         </label>
@@ -124,7 +123,7 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             id="article-abstract"
             placeholder="Abstract"
             minLength="2"
-            value={articleAbstract}
+            value={abstract}
             onChange={handleAbstractChange}
           />
         </label>
@@ -138,7 +137,7 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             name="article-downloadurl"
             id="url"
             placeholder="Download URL"
-            value={articleDownloadUrl}
+            value={downloadUrl}
             onChange={handleDownloadUrlChange}
             required
           />
