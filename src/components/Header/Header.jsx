@@ -4,7 +4,7 @@ import logout from "../../assets/logout.png";
 import logout_dark from "../../assets/logout-dark.png";
 import hamburger_icon from "../../assets/hamburger-icon.png";
 import hamburger_icon_dark from "../../assets/hamburger-icon-dark.png";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import MobileMenu from "../MobileMenu/MobileMenu.jsx";

@@ -1,6 +1,6 @@
 import "./MobileMenu.css";
 import logo from "../../assets/SSH_logo.png";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logout from "../../assets/logout.png";
 import logout_dark from "../../assets/logout-dark.png";
@@ -42,19 +42,19 @@ function MobileMenu({
             </button>
             {!inProfile ? (
               <div className="mobile-menu__links">
-                <Link to="/">
+                <Link to="/" onClick={handleCloseMobileMenu}>
                   <p className="mobile-menu__loggedin-home">Home</p>{" "}
                 </Link>
-                <Link to="/profile">
+                <Link to="/profile" onClick={handleCloseMobileMenu}>
                   <p className="mobile-menu__loggedin-saved">Saved Articles</p>
                 </Link>
               </div>
             ) : (
               <div className="mobile-menu__links">
-                <Link to="/">
+                <Link to="/" onClick={handleCloseMobileMenu}>
                   <p className="mobile-menu__loggedin-home-profile">Home</p>{" "}
                 </Link>
-                <Link to="/profile">
+                <Link to="/profile" onClick={handleCloseMobileMenu}>
                   <p className="mobile-menu__loggedin-saved-profile">
                     Saved Articles
                   </p>

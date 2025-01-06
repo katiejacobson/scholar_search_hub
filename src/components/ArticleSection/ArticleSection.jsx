@@ -6,6 +6,7 @@ function ArticleSection({
   inProfile,
   addSavedArticle,
   deleteSavedArticle,
+  confirmAction,
 }) {
   return (
     <div className="articlesection__container">
@@ -19,6 +20,7 @@ function ArticleSection({
                 inProfile={inProfile}
                 addSavedArticle={addSavedArticle}
                 deleteSavedArticle={deleteSavedArticle}
+                confirmAction={confirmAction}
               />
             );
           })}

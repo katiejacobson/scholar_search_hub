@@ -11,6 +11,7 @@ import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import AddArticleModal from "../AddArticleModal/AddArticleModal.jsx";
 import Profile from "../Profile/Profile.jsx";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 
 import { getArticles, processArticles } from "../../utils/coreAPI.js";
 import { APIkey } from "../../utils/constants.js";
@@ -66,10 +67,6 @@ function App() {
     setActiveModal("add-article");
   };
 
-  // const handleMobileMenuClick = (modal) => {
-  //   setActiveModal(modal);
-  // };
-
   const handleOpenMobileMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
     setActiveModal("mobile-menu");
@@ -78,6 +75,10 @@ function App() {
   const handleCloseMobileMenu = () => {
     closeActiveModal();
     setIsMenuOpen(false);
+  };
+
+  const confirmAction = () => {
+    setActiveModal("confirmation");
   };
 
   const handleRegistration = ({ email, password, name }) => {
@@ -127,8 +128,9 @@ function App() {
     saveArticle(values)
       .then((res) => {
         setSavedArticles([res, ...savedArticles]);
-        alert("article added");
+        // alert("article added");
         closeActiveModal();
+        confirmAction();
       })
       .catch(console.error);
     setIsMenuOpen(false);
@@ -278,6 +280,7 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   inProfile={inProfile}
                   addSavedArticle={addSavedArticle}
+                  confirmAction={confirmAction}
                 />
               }
             />
@@ -290,6 +293,7 @@ function App() {
                   inProfile={inProfile}
                   addSavedArticle={addSavedArticle}
                   deleteSavedArticle={deleteSavedArticle}
+                  confirmAction={confirmAction}
                 />
               }
             />
@@ -313,6 +317,12 @@ function App() {
             handleCloseClick={closeActiveModal}
             onAddArticle={handleAddArticleSubmit}
             closeActiveModal={closeActiveModal}
+          />
+          <ConfirmationModal
+            activeModal={activeModal}
+            handleCloseClick={closeActiveModal}
+            name={"confirmation"}
+            isOpen={activeModal === "confirmation"}
           />
         </div>
       </div>

@@ -3,17 +3,25 @@ import { useContext } from "react";
 
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
-function ArticleCard({ item, inProfile, addSavedArticle, deleteSavedArticle }) {
+function ArticleCard({
+  item,
+  inProfile,
+  addSavedArticle,
+  deleteSavedArticle,
+  confirmAction,
+}) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const handleSave = () => {
     addSavedArticle(item);
-    alert("Article Saved");
+    // alert("Article Saved");
+    confirmAction();
   };
 
   const handleDelete = () => {
     deleteSavedArticle(item.id);
-    alert("Article Deleted");
+    // alert("Article Deleted");
+    confirmAction();
   };
 
   const addButtonClassName = `card__button-add-article ${
