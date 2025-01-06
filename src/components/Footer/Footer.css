@@ -11,6 +11,16 @@
   align-items: baseline;
 }
 
+.footer__website-container {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__icon-container {
+  display: flex;
+  gap: 24px;
+}
+
 .footer__copyright-info {
   color: #ccc;
 }
@@ -18,4 +28,25 @@
 .footer__hyperlink-image {
   height: 20px;
   width: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .footer__container {
+    flex-direction: column;
+    padding: 0px 16px;
+  }
+
+  .footer__hyperlink-container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .footer__website-container {
+    flex-direction: column;
+  }
+
+  .footer__icon-container {
+    flex-direction: row;
+  }
 }

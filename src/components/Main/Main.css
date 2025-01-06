@@ -33,3 +33,19 @@
   border-style: solid;
   cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+  .main__container {
+    margin: 30px auto 30px;
+  }
+
+  .cards__text {
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .itemcards {
+    padding-inline-start: 0px;
+  }
+}

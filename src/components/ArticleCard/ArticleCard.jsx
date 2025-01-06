@@ -39,20 +39,20 @@ function ArticleCard({ item, inProfile, addSavedArticle, deleteSavedArticle }) {
         <p className="card__title">{item.title}</p>
         <p className="card__date">{item.createdDate}</p>
         <p className="card__authors">{item.authors}</p>
+
         <p className="card__abstract">{item.abstract}</p>
-      </div>
-      <div className="card__button-container">
-        <a href={item.downloadUrl} target="_blank">
-          <button
-            className="card__button-open-article"
-            type="button"
-            id="card__open-article"
-            aria-label="open"
-          >
-            Open Article
-          </button>
-        </a>
-        <div>
+
+        <div className="card__button-container">
+          <a href={item.downloadUrl} target="_blank">
+            <button
+              className="card__button-open-article"
+              type="button"
+              id="card__open-article"
+              aria-label="open"
+            >
+              Open Article
+            </button>
+          </a>
           {!inProfile ? (
             <button
               className={addButtonClassName}

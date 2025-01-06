@@ -20,3 +20,19 @@
 .about__profile-info {
   font-size: 18px;
 }
+
+@media screen and (max-width: 480px) {
+  .about__container {
+    flex-direction: column;
+    margin: 0 16px;
+  }
+
+  .about__profile-image {
+    width: 272px;
+    height: 272px;
+  }
+
+  .about__profile-name {
+    font-size: 24px;
+  }
+}

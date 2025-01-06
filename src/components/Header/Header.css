@@ -4,7 +4,9 @@ a:visited {
 
 .header {
   display: flex;
-  padding: 32px 0 28px;
+  padding: 32px 0 0px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207, 0.5);
 }
 
 .header__image-top {
@@ -20,7 +22,6 @@ a:visited {
   position: relative;
   box-sizing: border-box;
   z-index: 1;
-
   color: white;
 }
 
@@ -29,8 +30,6 @@ a:visited {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border-bottom: solid;
-  border-color: rgba(207, 207, 207, 0.5);
   margin: 0 40px;
 }
 
@@ -145,4 +144,35 @@ a {
   justify-content: center;
   gap: 5px;
   cursor: pointer;
+}
+
+.header__button_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .header__image-top {
+    height: 600px;
+  }
+
+  .header__logo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .header__title {
+    font-size: 20px;
+  }
+
+  .header__button {
+    display: none;
+  }
+
+  .header__button_mobile {
+    display: flex;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-style: none;
+  }
 }

@@ -2,6 +2,7 @@ import "./Header.css";
 import logo from "../../assets/SSH_logo.png";
 import logout from "../../assets/logout.png";
 import logout_dark from "../../assets/logout-dark.png";
+import hamburger_icon from "../../assets/hamburger-icon.png";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import SearchForm from "../SearchForm/SearchForm.jsx";
@@ -54,6 +55,12 @@ function Header({
                 </div>
               ) : (
                 <div className="header__button-container">
+                  <button className="header__button_mobile">
+                    <img
+                      src={hamburger_icon}
+                      className="header__button_mobile-image"
+                    />
+                  </button>
                   <button
                     className="header__button"
                     type="button"
