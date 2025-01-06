@@ -101,3 +101,14 @@
 .modal__form-field {
   margin-bottom: 24px;
 }
+
+@media screen and (max-width: 480px) {
+  .modal__container {
+    max-width: 350px;
+    max-height: 600px;
+  }
+
+  .modal__input {
+    width: 300px;
+  }
+}

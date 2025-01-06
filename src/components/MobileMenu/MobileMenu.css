@@ -1,0 +1,123 @@
+.mobile_menu {
+  display: none;
+}
+
+.mobile_menu_open {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+}
+
+.mobile-menu__top {
+  display: flex;
+  padding: 32px 0 0px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207, 0.5);
+  align-items: center;
+}
+
+.mobile-menu__logo {
+  height: 60px;
+  width: 60px;
+}
+
+.mobile-menu__title {
+  margin-left: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.mobile-menu__close-button {
+  position: absolute;
+  top: 50px;
+  right: 28px;
+  background-image: url(../../assets/item-close-icon.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  height: 16px;
+  width: 16px;
+  border: none;
+}
+
+.mobile-menu__container {
+  margin-left: 16px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.mobile-menu__loggedin-info {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  color: #fff;
+  align-items: center;
+}
+
+.mobile-menu__loggedin-home {
+  padding-bottom: 10px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207);
+  margin-bottom: 15px;
+}
+
+.mobile-menu__loggedin-saved {
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.mobile-menu__text {
+  color: #fff;
+}
+
+.mobile-menu__button {
+  height: 60px;
+  width: 300px;
+  color: #fff;
+  margin-right: 18px;
+  border-color: #fff;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: transparent;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.mobile-menu__button_transparent {
+  height: 60px;
+  width: 130px;
+  color: #fff;
+  margin-right: 18px;
+  border-color: #fff;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.mobile-menu__button-image {
+  height: 24px;
+  width: 24px;
+}
+
+.mobile-menu__loggedin-home-profile {
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.mobile-menu__loggedin-saved-profile {
+  padding-bottom: 10px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207);
+  margin-bottom: 15px;
+}

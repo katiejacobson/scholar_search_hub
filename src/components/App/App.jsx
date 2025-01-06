@@ -48,6 +48,8 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [inProfile, setInProfile] = useState(false);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -61,8 +63,21 @@ function App() {
   };
 
   const handleAddArticleClick = () => {
-    console.log("click");
     setActiveModal("add-article");
+  };
+
+  // const handleMobileMenuClick = (modal) => {
+  //   setActiveModal(modal);
+  // };
+
+  const handleOpenMobileMenu = () => {
+    setIsMenuOpen((prevState) => !prevState);
+    setActiveModal("mobile-menu");
+  };
+
+  const handleCloseMobileMenu = () => {
+    closeActiveModal();
+    setIsMenuOpen(false);
   };
 
   const handleRegistration = ({ email, password, name }) => {
@@ -70,6 +85,7 @@ function App() {
     register(email, password, name)
       .then(() => handleLogInClick())
       .catch(console.error);
+    setIsMenuOpen(false);
   };
 
   const handleLogIn = ({ email, password }) => {
@@ -86,6 +102,7 @@ function App() {
         }
       })
       .catch(console.error);
+    setIsMenuOpen(false);
   };
 
   const handleLogOut = () => {
@@ -96,6 +113,7 @@ function App() {
       id: "",
     });
     setSearchedArticles([]);
+    setIsMenuOpen(false);
     navigate("/");
   };
 
@@ -113,6 +131,7 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error);
+    setIsMenuOpen(false);
   };
 
   const searchArticles = (keyword, APIkey) => {
@@ -165,11 +184,13 @@ function App() {
   };
 
   useEffect(() => {
+    console.log(activeModal);
     if (!activeModal) return;
 
     const handleEscClose = (evt) => {
       if (evt.key === "Escape") {
         closeActiveModal();
+        setIsMenuOpen(false);
       }
     };
 
@@ -236,6 +257,10 @@ function App() {
             articleIndex={articleIndex}
             setArticleIndex={setArticleIndex}
             inProfile={inProfile}
+            activeModal={activeModal}
+            handleOpenMobileMenu={handleOpenMobileMenu}
+            handleCloseMobileMenu={handleCloseMobileMenu}
+            isMenuOpen={isMenuOpen}
           />
           <Routes>
             <Route
@@ -275,13 +300,11 @@ function App() {
             activeModal={activeModal}
             handleCloseClick={closeActiveModal}
             handleRegistration={handleRegistration}
-            closeActiveModal={closeActiveModal}
             handleLogInClick={handleLogInClick}
           />
           <LoginModal
             activeModal={activeModal}
             handleCloseClick={closeActiveModal}
-            closeActiveModal={closeActiveModal}
             handleLogIn={handleLogIn}
             handleSignUpClick={handleSignUpClick}
           />
