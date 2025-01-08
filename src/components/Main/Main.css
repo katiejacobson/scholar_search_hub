@@ -45,6 +45,10 @@
     font-size: 20px;
   }
 
+  .cards {
+    padding-left: 10px;
+  }
+
   .itemcards {
     padding-inline-start: 0px;
   }

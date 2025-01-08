@@ -21,6 +21,17 @@
   font-size: 18px;
 }
 
+@media screen and (max-width: 785px) {
+  .about__container {
+    margin: 0 40px;
+    column-gap: 32px;
+  }
+  .about__profile-image {
+    width: 272px;
+    height: 272px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .about__container {
     flex-direction: column;

@@ -40,6 +40,7 @@ function App() {
   const [articleIndex, setArticleIndex] = useState(3);
   const [searchterm, setSearchTerm] = useState("");
   const [activeModal, setActiveModal] = useState("");
+  const [actionDone, setActionDone] = useState("");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({
@@ -79,6 +80,10 @@ function App() {
 
   const confirmAction = () => {
     setActiveModal("confirmation");
+  };
+
+  const recordAction = (action) => {
+    setActionDone(action);
   };
 
   const handleRegistration = ({ email, password, name }) => {
@@ -128,7 +133,7 @@ function App() {
     saveArticle(values)
       .then((res) => {
         setSavedArticles([res, ...savedArticles]);
-        // alert("article added");
+        recordAction("Article Added");
         closeActiveModal();
         confirmAction();
       })
@@ -186,7 +191,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(activeModal);
     if (!activeModal) return;
 
     const handleEscClose = (evt) => {
@@ -281,6 +285,7 @@ function App() {
                   inProfile={inProfile}
                   addSavedArticle={addSavedArticle}
                   confirmAction={confirmAction}
+                  recordAction={recordAction}
                 />
               }
             />
@@ -294,6 +299,7 @@ function App() {
                   addSavedArticle={addSavedArticle}
                   deleteSavedArticle={deleteSavedArticle}
                   confirmAction={confirmAction}
+                  recordAction={recordAction}
                 />
               }
             />
@@ -323,6 +329,7 @@ function App() {
             handleCloseClick={closeActiveModal}
             name={"confirmation"}
             isOpen={activeModal === "confirmation"}
+            text={actionDone}
           />
         </div>
       </div>

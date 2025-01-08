@@ -9,18 +9,19 @@ function ArticleCard({
   addSavedArticle,
   deleteSavedArticle,
   confirmAction,
+  recordAction,
 }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const handleSave = () => {
     addSavedArticle(item);
-    // alert("Article Saved");
+    recordAction("Article Saved");
     confirmAction();
   };
 
   const handleDelete = () => {
     deleteSavedArticle(item.id);
-    // alert("Article Deleted");
+    recordAction("Article Deleted");
     confirmAction();
   };
 
@@ -50,39 +51,38 @@ function ArticleCard({
 
         <p className="card__abstract">{item.abstract}</p>
 
-        <div className="card__button-container">
+        <button
+          className="card__button-open-article"
+          type="button"
+          id="card__open-article"
+          aria-label="open"
+        >
           <a href={item.downloadUrl} target="_blank">
-            <button
-              className="card__button-open-article"
-              type="button"
-              id="card__open-article"
-              aria-label="open"
-            >
-              Open Article
-            </button>
+            Open Article
           </a>
-          {!inProfile ? (
-            <button
-              className={addButtonClassName}
-              type="button"
-              id="card__add-article"
-              aria-label="add"
-              onClick={handleSave}
-            >
-              Save Article
-            </button>
-          ) : (
-            <button
-              className={deleteButtonClassName}
-              type="button"
-              id="card__delete-article"
-              aria-label="delete"
-              onClick={handleDelete}
-            >
-              Delete Article
-            </button>
-          )}
-        </div>
+        </button>
+
+        {!inProfile ? (
+          <button
+            className={addButtonClassName}
+            type="button"
+            id="card__add-article"
+            aria-label="add"
+            onClick={handleSave}
+          >
+            Save Article
+          </button>
+        ) : (
+          <button
+            className={deleteButtonClassName}
+            type="button"
+            id="card__delete-article"
+            aria-label="delete"
+            onClick={handleDelete}
+          >
+            Delete Article
+          </button>
+        )}
       </div>
     </li>
   );

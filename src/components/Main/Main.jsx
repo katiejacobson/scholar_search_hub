@@ -20,6 +20,7 @@ function Main({
   inProfile,
   addSavedArticle,
   confirmAction,
+  recordAction,
 }) {
   const logInfo = (info) => {
     console.log(info);
@@ -66,6 +67,7 @@ function Main({
                       inProfile={inProfile}
                       addSavedArticle={addSavedArticle}
                       confirmAction={confirmAction}
+                      recordAction={recordAction}
                     />
                   );
                 })}

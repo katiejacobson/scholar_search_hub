@@ -159,6 +159,50 @@ a {
   display: none;
 }
 
+@media screen and (max-width: 785px) {
+  .header__loggedin-info {
+    gap: 15px;
+  }
+
+  .header__loggedin-info-profile {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .header__button {
+    display: none;
+  }
+
+  .header__button_mobile {
+    display: flex;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-style: none;
+  }
+
+  .header__loggedin-info {
+    display: none;
+  }
+
+  .header__loggedin-info-profile {
+    display: none;
+  }
+
+  .header__title-profile {
+    font-size: 20px;
+  }
+
+  .header__button_mobile {
+    display: flex;
+    height: 36px;
+    width: 36px;
+    background-color: transparent;
+    border-style: none;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .header__image-top {
     height: 600px;

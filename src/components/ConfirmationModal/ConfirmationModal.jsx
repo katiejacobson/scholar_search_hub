@@ -1,6 +1,6 @@
 import "./ConfirmationModal.css";
 
-function ConfirmationModal({ isOpen, handleCloseClick }) {
+function ConfirmationModal({ isOpen, handleCloseClick, text }) {
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__container">
@@ -10,7 +10,7 @@ function ConfirmationModal({ isOpen, handleCloseClick }) {
           aria-label="close"
           onClick={handleCloseClick}
         />
-        <h2 className="modal__heading">This is the confirmation modal</h2>
+        <h2 className="confirmation-modal__heading">{text}</h2>
       </div>
     </div>
   );

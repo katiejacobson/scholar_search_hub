@@ -7,6 +7,7 @@ function ArticleSection({
   addSavedArticle,
   deleteSavedArticle,
   confirmAction,
+  recordAction,
 }) {
   return (
     <div className="articlesection__container">
@@ -21,6 +22,7 @@ function ArticleSection({
                 addSavedArticle={addSavedArticle}
                 deleteSavedArticle={deleteSavedArticle}
                 confirmAction={confirmAction}
+                recordAction={recordAction}
               />
             );
           })}

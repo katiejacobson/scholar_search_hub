@@ -12,6 +12,7 @@ function Profile({
   addSavedArticle,
   deleteSavedArticle,
   confirmAction,
+  recordAction,
 }) {
   const markInProfile = () => {
     console.log(currentUser);
@@ -37,6 +38,7 @@ function Profile({
           addSavedArticle={addSavedArticle}
           deleteSavedArticle={deleteSavedArticle}
           confirmAction={confirmAction}
+          recordAction={recordAction}
         />
       </section>
     </div>
