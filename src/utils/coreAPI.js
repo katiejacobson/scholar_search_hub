@@ -16,6 +16,7 @@ export const getArticles = (searchterm, APIkey) => {
     `${baseUrl}/v3/search/works/?q=abstract:${searchterm}&limit=50`,
     {
       method: "GET",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${APIkey}`,
