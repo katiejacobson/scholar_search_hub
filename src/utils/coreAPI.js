@@ -9,7 +9,8 @@ function renderResult(res) {
   }
 }
 
-export const baseUrl = "https://api.core.ac.uk";
+// export const baseUrl = "https://api.core.ac.uk";
+export const baseUrl = "https://proxy.cors.sh/https://api.core.ac.uk";
 
 export const getArticles = (searchterm, APIkey) => {
   return fetch(
@@ -17,6 +18,7 @@ export const getArticles = (searchterm, APIkey) => {
     {
       method: "GET",
       headers: {
+        "x-cors-api-key": "temp_8e9c0e02e5eeae7d86bfe412f3bf08e5",
         "Content-Type": "application/json",
         Authorization: `Bearer ${APIkey}`,
       },
