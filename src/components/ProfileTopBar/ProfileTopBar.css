@@ -1,6 +1,6 @@
-.profiletopbar__container {
+.profiletopbar {
   margin: 15px 60px;
-  width: 530px;
+  max-width: 530px;
 }
 
 .profiletopbar__title {
@@ -12,9 +12,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .profiletopbar__container {
+  .profiletopbar {
     margin: 15px 15px;
-    width: 320px;
+    width: 280px;
   }
 
   .profiletopbar__text {

@@ -10,7 +10,7 @@ function ArticleSection({
   recordAction,
 }) {
   return (
-    <div className="articlesection__container">
+    <section className="articlesection">
       <ul className="itemcards">
         {savedArticles.length > 0 &&
           savedArticles.map((item, index) => {
@@ -27,7 +27,7 @@ function ArticleSection({
             );
           })}
       </ul>
-    </div>
+    </section>
   );
 }
 

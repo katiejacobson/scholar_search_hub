@@ -7,7 +7,7 @@ function About({ inProfile }) {
   };
 
   return (
-    <div>
+    <section className="about">
       {!inProfile ? (
         <div className="about__container">
           <img
@@ -40,7 +40,7 @@ function About({ inProfile }) {
       ) : (
         <p></p>
       )}
-    </div>
+    </section>
   );
 }
 

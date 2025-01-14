@@ -32,7 +32,7 @@ function Main({
   };
 
   return (
-    <main className="main__container">
+    <main className="main">
       {serverError ? (
         <p className="main__server-error-message">
           Sorry, something went wrong during the request. There may be a

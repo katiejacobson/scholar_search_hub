@@ -32,123 +32,117 @@ function Header({
   };
 
   return (
-    <div>
-      <header className="header">
-        {!inProfile ? (
-          <div className="header__image-top">
-            <div className="header__main-top">
-              <img className="header__logo" src={logo} alt="Logo" />
-              <div className="header__container">
-                <h1 className="header__title">Scholar Search Hub</h1>
-                {isLoggedIn ? (
-                  <div>
-                    <button className="header__button_mobile">
-                      <img
-                        src={hamburger_icon}
-                        className="header__button_mobile-image"
-                        onClick={handleOpenMobileMenu}
-                      />
-                    </button>
-                    <div className="header__loggedin-info">
-                      <button
-                        className="header__button"
-                        type="button"
-                        onClick={handleAddArticleClick}
-                      >
-                        + Add Article
-                      </button>
-                      <Link to="/">
-                        <p className="header__loggedin-home">Home</p>{" "}
-                      </Link>
-                      <Link to="/profile">
-                        <p className="header__loggedin-saved">Saved Articles</p>
-                      </Link>
-                      <button
-                        type="button"
-                        className="header__button_transparent"
-                        onClick={handleLogOut}
-                      >
-                        {currentUser.name}{" "}
-                        <img src={logout} className="header__button-image" />
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="header__login-container">
-                    <button className="header__button_mobile">
-                      <img
-                        src={hamburger_icon}
-                        className="header__button_mobile-image"
-                        onClick={handleOpenMobileMenu}
-                      />
-                    </button>
-                    <button
-                      className="header__button"
-                      type="button"
-                      onClick={handleSignUpClick}
-                    >
-                      Sign up
-                    </button>
-                    <button
-                      className="header__button"
-                      type="button"
-                      onClick={handleLogInClick}
-                    >
-                      Log in
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-            <SearchForm
-              onSearchSubmit={handleSearchSubmit}
-              articleIndex={articleIndex}
-              setArticleIndex={setArticleIndex}
-            />
-          </div>
-        ) : (
-          <div className="header__profile-top">
-            <div className="header__profile">
-              <img className="header__logo" src={logo} alt="Logo" />
-              <div className="header__container">
-                <h1 className="header__title-profile">Scholar Search Hub</h1>
-                <button className="header__button_mobile">
-                  <img
-                    src={hamburger_icon_dark}
-                    className="header__button_mobile-image"
-                    onClick={handleOpenMobileMenu}
-                  />
-                </button>
-                <div className="header__loggedin-info-profile">
-                  <button
-                    className="header__button-profile"
-                    type="button"
-                    onClick={handleAddArticleClick}
-                  >
-                    + Add Article
+    <header className="header">
+      {!inProfile ? (
+        <div className="header__image-top">
+          <div className="header__main-top">
+            <img className="header__logo" src={logo} alt="Logo" />
+            <div className="header__container">
+              <h1 className="header__title">Scholar Search Hub</h1>
+              {isLoggedIn ? (
+                <div className="header__logged-in">
+                  <button className="header__button header__button_mobile">
+                    <img
+                      src={hamburger_icon}
+                      className="header__button-mobile-image"
+                      onClick={handleOpenMobileMenu}
+                    />
                   </button>
-                  <Link to="/">
-                    <p className="header__loggedin-home-profile">Home</p>{" "}
-                  </Link>
-                  <Link to="/profile">
-                    <p className="header__loggedin-saved-profile">
-                      Saved Articles
-                    </p>
-                  </Link>
+                  <div className="header__loggedin-info">
+                    <button
+                      className="header__button"
+                      type="button"
+                      onClick={handleAddArticleClick}
+                    >
+                      + Add Article
+                    </button>
+                    <Link to="/">
+                      <p className="header__loggedin-home">Home</p>{" "}
+                    </Link>
+                    <Link to="/profile">
+                      <p className="header__loggedin-saved">Saved Articles</p>
+                    </Link>
+                    <button
+                      type="button"
+                      className="header__button header__button_transparent"
+                      onClick={handleLogOut}
+                    >
+                      {currentUser.name}{" "}
+                      <img src={logout} className="header__button-image" />
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="header__login-container">
+                  <button className="header__button header__button_mobile">
+                    <img
+                      src={hamburger_icon}
+                      className="header__button-mobile-image"
+                      onClick={handleOpenMobileMenu}
+                    />
+                  </button>
                   <button
+                    className="header__button"
                     type="button"
-                    className="header__button_transparent-profile"
-                    onClick={handleLogOut}
+                    onClick={handleSignUpClick}
                   >
-                    Katie{" "}
-                    <img src={logout_dark} className="header__button-image" />
+                    Sign up
+                  </button>
+                  <button
+                    className="header__button"
+                    type="button"
+                    onClick={handleLogInClick}
+                  >
+                    Log in
                   </button>
                 </div>
-              </div>
+              )}
             </div>
           </div>
-        )}
-      </header>
+          <SearchForm
+            onSearchSubmit={handleSearchSubmit}
+            articleIndex={articleIndex}
+            setArticleIndex={setArticleIndex}
+          />
+        </div>
+      ) : (
+        <div className="header__profile">
+          <img className="header__logo" src={logo} alt="Logo" />
+          <div className="header__container">
+            <h1 className="header__profile-title">Scholar Search Hub</h1>
+            <button className="header__button header__button_mobile">
+              <img
+                src={hamburger_icon_dark}
+                className="header__button-mobile-image"
+                onClick={handleOpenMobileMenu}
+              />
+            </button>
+            <div className="header__loggedin-info-profile">
+              <button
+                className="header__button header__button-profile"
+                type="button"
+                onClick={handleAddArticleClick}
+              >
+                + Add Article
+              </button>
+              <Link to="/">
+                <p className="header__loggedin-home-profile">Home</p>{" "}
+              </Link>
+              <Link to="/profile">
+                <p className="header__loggedin-saved-profile">Saved Articles</p>
+              </Link>
+              <button
+                type="button"
+                className="header__button header__button_transparent-profile"
+                onClick={handleLogOut}
+              >
+                Katie <img src={logout_dark} className="header__button-image" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {isMenuOpen && (
         <MobileMenu
           isMenuOpen={isMenuOpen}
@@ -160,7 +154,7 @@ function Header({
           inProfile={inProfile}
         />
       )}
-    </div>
+    </header>
   );
 }
 

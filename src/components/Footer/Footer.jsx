@@ -5,7 +5,7 @@ import linkedin from "../../assets/linkedin.png";
 
 function Footer() {
   return (
-    <div className="footer__container">
+    <footer className="footer">
       <div className="footer__hyperlink-container">
         <div className="footer__website-container">
           <a href="" target="_blank">
@@ -40,7 +40,7 @@ function Footer() {
           © Katie Jacobson, Powered by Core API
         </p>
       </div>
-    </div>
+    </footer>
   );
 }
 

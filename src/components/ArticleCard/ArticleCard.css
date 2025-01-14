@@ -155,26 +155,30 @@ a {
 @media screen and (max-width: 485px) {
   .card {
     height: 500px;
-    width: 310px;
+    width: 280px;
   }
 
   .card__info-container {
     padding: 10px;
     grid-template-columns: minmax(300px, auto);
-    max-width: 320px;
+    max-width: 280px;
   }
 
   .card__title {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    max-width: 280px;
+    max-width: 220px;
+  }
+
+  .card__authors {
+    max-width: 220px;
   }
 
   .card__abstract {
     overflow: hidden;
     max-height: 100px;
-    max-width: 280px;
+    max-width: 220px;
   }
 
   .card__button-container {

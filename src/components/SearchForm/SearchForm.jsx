@@ -12,7 +12,7 @@ function SearchForm({ onSearchSubmit, articleIndex, setArticleIndex }) {
   };
 
   return (
-    <div className="searchform__container">
+    <div className="searchform">
       <h2 className="searchform__description">
         Open Access journal articles to help you with your research
       </h2>

@@ -27,20 +27,17 @@ function Profile({
   }, [setInProfile]);
 
   return (
-    <div className="profile__container">
-      <section>
-        <ProfileTopBar savedArticles={savedArticles} />
-      </section>
-      <section>
-        <ArticleSection
-          savedArticles={savedArticles}
-          inProfile={inProfile}
-          addSavedArticle={addSavedArticle}
-          deleteSavedArticle={deleteSavedArticle}
-          confirmAction={confirmAction}
-          recordAction={recordAction}
-        />
-      </section>
+    <div className="profile">
+      <ProfileTopBar savedArticles={savedArticles} />
+
+      <ArticleSection
+        savedArticles={savedArticles}
+        inProfile={inProfile}
+        addSavedArticle={addSavedArticle}
+        deleteSavedArticle={deleteSavedArticle}
+        confirmAction={confirmAction}
+        recordAction={recordAction}
+      />
     </div>
   );
 }
