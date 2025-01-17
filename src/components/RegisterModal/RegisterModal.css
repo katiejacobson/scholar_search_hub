@@ -13,12 +13,22 @@
   color: #fff;
 }
 
+.modal__button-main:hover {
+  cursor: pointer;
+}
+
 .modal__button-main:disabled {
   background-color: rgba(0, 0, 0, 0.3);
+  cursor: default;
 }
 
 .modal__button-alternative {
   border: none;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__button-alternative:hover {
+  cursor: pointer;
+  color: #000;
 }

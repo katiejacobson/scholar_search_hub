@@ -1,8 +1,8 @@
-.mobile_menu {
+.mobile-menu {
   display: none;
 }
 
-.mobile_menu_open {
+.mobile-menu_open {
   display: block;
   position: fixed;
   top: 0;
@@ -45,6 +45,10 @@
   border: none;
 }
 
+.mobile-menu__close-button:hover {
+  cursor: pointer;
+}
+
 .mobile-menu__container {
   margin-left: 16px;
   margin-top: 30px;
@@ -66,11 +70,29 @@
   border-bottom: solid;
   border-color: rgba(207, 207, 207);
   margin-bottom: 15px;
+  color: #fff;
+}
+
+.mobile-menu__loggedin-home:hover {
+  color: gray;
+}
+
+.mobile-menu__loggedin-home:visited {
+  color: inherit;
 }
 
 .mobile-menu__loggedin-saved {
   padding-bottom: 10px;
   margin-bottom: 16px;
+  color: #fff;
+}
+
+.mobile-menu__loggedin-saved:hover {
+  color: gray;
+}
+
+.mobile-menu__loggedin-saved:visited {
+  color: inherit;
 }
 
 .mobile-menu__text {
@@ -90,6 +112,11 @@
   margin-bottom: 16px;
 }
 
+.mobile-menu__button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
 .mobile-menu__button_transparent {
   height: 60px;
   width: 130px;
@@ -105,6 +132,11 @@
   gap: 5px;
 }
 
+.mobile-menu__button_transparent:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
 .mobile-menu__button-image {
   height: 24px;
   width: 24px;
@@ -115,9 +147,22 @@
   margin-bottom: 16px;
 }
 
+.mobile-menu__loggedin-home-profile {
+  color: #fff;
+}
+
+.mobile-menu__loggedin-home-profile:hover {
+  color: gray;
+}
+
 .mobile-menu__loggedin-saved-profile {
   padding-bottom: 10px;
   border-bottom: solid;
   border-color: rgba(207, 207, 207);
   margin-bottom: 15px;
+  color: #fff;
+}
+
+.mobile-menu__loggedin-saved-profile:hover {
+  color: gray;
 }

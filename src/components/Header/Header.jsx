@@ -46,6 +46,7 @@ function Header({
                       src={hamburger_icon}
                       className="header__button-mobile-image"
                       onClick={handleOpenMobileMenu}
+                      alt="mobile menu button"
                     />
                   </button>
                   <div className="header__loggedin-info">
@@ -68,7 +69,11 @@ function Header({
                       onClick={handleLogOut}
                     >
                       {currentUser.name}{" "}
-                      <img src={logout} className="header__button-image" />
+                      <img
+                        src={logout}
+                        className="header__button-image"
+                        alt="logout button"
+                      />
                     </button>
                   </div>
                 </div>
@@ -79,6 +84,7 @@ function Header({
                       src={hamburger_icon}
                       className="header__button-mobile-image"
                       onClick={handleOpenMobileMenu}
+                      alt="mobile menu button"
                     />
                   </button>
                   <button
@@ -115,6 +121,7 @@ function Header({
                 src={hamburger_icon_dark}
                 className="header__button-mobile-image"
                 onClick={handleOpenMobileMenu}
+                alt="mobile menu button"
               />
             </button>
             <div className="header__loggedin-info-profile">
@@ -136,7 +143,12 @@ function Header({
                 className="header__button header__button_transparent-profile"
                 onClick={handleLogOut}
               >
-                Katie <img src={logout_dark} className="header__button-image" />
+                Katie{" "}
+                <img
+                  src={logout_dark}
+                  className="header__button-image"
+                  alt="logout button"
+                />
               </button>
             </div>
           </div>

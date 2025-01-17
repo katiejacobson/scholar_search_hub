@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ModalForm from "../ModalForm/ModalForm.jsx";
 import "./RegisterModal.css";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation.js";
 
 const RegisterModal = ({
   activeModal,
@@ -8,35 +9,51 @@ const RegisterModal = ({
   handleRegistration,
   handleLogInClick,
 }) => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-    name: "",
-  });
+  const { values, handleChange, errors, isValid, setValues, resetForm } =
+    useFormAndValidation();
 
-  const isFormValid = data.email && data.password && data.name;
+  // const [data, setData] = useState({
+  //   email: "",
+  //   password: "",
+  //   name: "",
+  // });
+  // const [emailError, setEmailError] = useState("");
+  // const [passwordError, setPasswordError] = useState("");
+  // const [nameError, setNameError] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const isFormValid = data.email && data.password && data.name;
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   if (e.target.name === "email") {
+  //     setEmailError(e.target.validationMessage);
+  //   }
+  //   if (e.target.name === "password") {
+  //     setPasswordError(e.target.validationMessage);
+  //   }
+  //   if (e.target.name === "name") {
+  //     setNameError(e.target.validationMessage);
+  //   }
+  //   setData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegistration(data);
+    handleRegistration(values);
   };
 
   useEffect(() => {
     if (!activeModal) return;
 
-    setData({
-      name: "",
-      email: "",
-      password: "",
-    });
+    // setData({
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    // });
+    resetForm();
   }, [activeModal]);
 
   return (
@@ -58,10 +75,13 @@ const RegisterModal = ({
             id="register-email"
             placeholder="Email"
             required
-            value={data.email}
+            value={values.email || ""}
             onChange={handleChange}
           />
         </label>
+        {errors.email && (
+          <span className="modal__error_visible">{errors.email}</span>
+        )}
       </div>
       <div className="modal__form-field">
         <label className="modal__label">
@@ -74,11 +94,14 @@ const RegisterModal = ({
             placeholder="Password"
             minLength="2"
             maxLength="40"
-            value={data.password}
+            value={values.password || ""}
             onChange={handleChange}
             required
           />
         </label>
+        {errors.password && (
+          <span className="modal__error_visible">{errors.password}</span>
+        )}
       </div>
 
       <div className="modal__form-field">
@@ -92,18 +115,21 @@ const RegisterModal = ({
             placeholder="Name"
             minLength="2"
             maxLength="40"
-            value={data.name}
+            value={values.name || ""}
             onChange={handleChange}
             required
           />
         </label>
+        {errors.name && (
+          <span className="modal__error_visible">{errors.name}</span>
+        )}
       </div>
       <div className="modal__button-container">
         <button
           className="modal__button-main"
           type="submit"
           aria-label="submit"
-          disabled={!isFormValid}
+          disabled={!isValid}
         >
           Sign Up
         </button>

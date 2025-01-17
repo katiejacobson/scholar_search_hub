@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ModalForm from "../ModalForm/ModalForm.jsx";
 import "./LoginModal.css";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation.js";
 
 const LoginModal = ({
   activeModal,
@@ -8,33 +9,18 @@ const LoginModal = ({
   handleLogIn,
   handleSignUpClick,
 }) => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const isFormValid = data.email && data.password;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const { values, handleChange, errors, isValid, setValues, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogIn(data);
+    handleLogIn(values);
   };
 
   useEffect(() => {
     if (!activeModal) return;
 
-    setData({
-      email: "",
-      password: "",
-    });
+    resetForm();
   }, [activeModal]);
 
   return (
@@ -56,10 +42,13 @@ const LoginModal = ({
             id="login-email"
             placeholder="Email"
             required
-            value={data.email}
+            value={values.email || ""}
             onChange={handleChange}
           />
         </label>
+        {errors.email && (
+          <span className="modal__error_visible">{errors.email}</span>
+        )}
       </div>
       <div className="modal__form-field">
         <label className="modal__label">
@@ -72,18 +61,21 @@ const LoginModal = ({
             placeholder="Password"
             minLength="2"
             maxLength="40"
-            value={data.password}
             onChange={handleChange}
+            value={values.password || ""}
             required
           />
         </label>
+        {errors.password && (
+          <span className="modal__error_visible">{errors.password}</span>
+        )}
       </div>
       <div className="modal__button-container">
         <button
           className="modal__button-main"
           type="submit"
           aria-label="submit"
-          disabled={!isFormValid}
+          disabled={!isValid}
         >
           Log In
         </button>

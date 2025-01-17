@@ -1,56 +1,22 @@
 import "./AddArticleModal.css";
 import React, { useState, useEffect } from "react";
 import ModalForm from "../ModalForm/ModalForm.jsx";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation.js";
 
 function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
-  const [title, setTitle] = useState("");
-  const [authors, setAuthors] = useState("");
-  const [createdDate, setCreatedDate] = useState("");
-  const [abstract, setAbstract] = useState("");
-  const [downloadUrl, setDownloadUrl] = useState("");
-
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleAuthorChange = (e) => {
-    setAuthors(e.target.value);
-  };
-
-  const handleCreatedDateChange = (e) => {
-    setCreatedDate(e.target.value);
-  };
-
-  const handleAbstractChange = (e) => {
-    setAbstract(e.target.value);
-  };
-
-  const handleDownloadUrlChange = (e) => {
-    setDownloadUrl(e.target.value);
-  };
-
-  const isFormValid = title && authors && createdDate && downloadUrl;
+  const { values, handleChange, errors, isValid, setValues, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     console.log("click");
     e.preventDefault();
-    onAddArticle(e, {
-      title,
-      authors,
-      createdDate,
-      abstract,
-      downloadUrl,
-    });
+    onAddArticle(e, values);
   };
 
   useEffect(() => {
     if (!activeModal) return;
 
-    setTitle("");
-    setAuthors("");
-    setCreatedDate("");
-    setAbstract("");
-    setDownloadUrl("");
+    resetForm();
   }, [activeModal]);
 
   return (
@@ -74,10 +40,13 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             required
             minLength="2"
             maxLength="40"
-            value={title}
-            onChange={handleTitleChange}
+            value={values.title || ""}
+            onChange={handleChange}
           />
         </label>
+        {errors.title && (
+          <span className="modal__error_visible">{errors.title}</span>
+        )}
       </div>
       <div className="modal__form-field">
         <label className="modal__label">
@@ -91,27 +60,33 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             minLength="2"
             maxLength="40"
             required
-            value={authors}
-            onChange={handleAuthorChange}
+            value={values.authors || ""}
+            onChange={handleChange}
           />
         </label>
+        {errors.authors && (
+          <span className="modal__error_visible">{errors.authors}</span>
+        )}
       </div>
       <div className="modal__form-field">
         <label className="modal__label">
           Published Date
           <input
             className="modal__input"
-            name="date"
+            name="createdDate"
             type="text"
             id="article-date"
             placeholder="Published Date"
             required
             minLength="2"
             maxLength="40"
-            value={createdDate}
-            onChange={handleCreatedDateChange}
+            value={values.createdDate || ""}
+            onChange={handleChange}
           />
         </label>
+        {errors.createdDate && (
+          <span className="modal__error_visible">{errors.createdDate}</span>
+        )}
       </div>
       <div className="modal__form-field">
         <label className="modal__label">
@@ -123,8 +98,8 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
             id="article-abstract"
             placeholder="Abstract"
             minLength="2"
-            value={abstract}
-            onChange={handleAbstractChange}
+            value={values.abstract || ""}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -134,20 +109,23 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
           <input
             className="modal__input"
             type="url"
-            name="article-downloadurl"
+            name="downloadUrl"
             id="url"
             placeholder="Download URL"
-            value={downloadUrl}
-            onChange={handleDownloadUrlChange}
+            value={values.downloadUrl || ""}
+            onChange={handleChange}
             required
           />
         </label>
+        {errors.downloadUrl && (
+          <span className="modal__error_visible">{errors.downloadUrl}</span>
+        )}
       </div>
       <button
         className="modal__button-main"
         type="submit"
         aria-label="submit"
-        disabled={!isFormValid}
+        disabled={!isValid}
       >
         Add Article
       </button>

@@ -58,7 +58,7 @@ export function saveArticle(article) {
   // article is a result from the CoreAPI
   return new Promise((resolve, reject) => {
     resolve({
-      id: article.id, // another one made up from the generator
+      // id: article.id, // another one made up from the generator
       abstract: article.abstract,
       authors: article.authors,
       createdDate: article.createdDate,

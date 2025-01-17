@@ -1,12 +1,3 @@
-p {
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-
-a {
-  color: inherit;
-}
-
 .card {
   display: flex;
   justify-content: space-between;
@@ -26,6 +17,8 @@ a {
 .card__title {
   font-size: 26px;
   grid-row: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .card__date {
@@ -33,17 +26,26 @@ a {
   color: gray;
   grid-row: 2;
   margin-bottom: 16px;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .card__authors {
   font-size: 16px;
   grid-row: 3;
   margin-bottom: 16px;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .card__abstract {
   font-size: 16px;
   grid-row: 4;
+  margin-block-end: 0;
+}
+
+.card__link {
+  color: inherit;
 }
 
 .card__button-open-article {
@@ -58,6 +60,11 @@ a {
   cursor: pointer;
   grid-column: 2;
   grid-row: 1;
+}
+
+.card__button-open-article:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 .card__button-add-article {
@@ -75,6 +82,11 @@ a {
   grid-row: 2;
 }
 
+.card__button-add-article:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
 .card__button-add-article_hidden {
   visibility: hidden;
 }
@@ -89,6 +101,11 @@ a {
   border-radius: 30px;
   background-color: #00b1b7;
   color: #ffff;
+  cursor: pointer;
+}
+
+.card__button-delete-article:hover {
+  background-color: gray;
   cursor: pointer;
 }
 

@@ -47,6 +47,10 @@
   border: none;
 }
 
+.modal__close-button:hover {
+  cursor: pointer;
+}
+
 .modal__form {
   margin: 0;
   padding: 0;
@@ -75,16 +79,6 @@
   margin-bottom: 8px;
 }
 
-.modal__radio-button {
-  display: flex;
-  margin-top: 8px;
-  font-size: 16px;
-}
-
-.modal__radio-button-choice {
-  margin-right: 5px;
-}
-
 .modal__button {
   margin-top: 6px;
   margin-bottom: 6px;
@@ -111,4 +105,13 @@
   .modal__input {
     width: 250px;
   }
+}
+
+.modal__error {
+  color: yellow;
+}
+
+.modal__error_visible {
+  color: #ff0000;
+  font-size: 16px;
 }

@@ -22,6 +22,7 @@
   width: 480px;
   margin: 20px 0px 80px;
   height: 64px;
+  align-items: center;
 }
 
 .searchform__input {
@@ -41,6 +42,12 @@
   border-radius: 30px 0 0 30px;
   background-color: #00b1b7;
   color: #ffff;
+  height: 68px;
+}
+
+.searchform__button:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
@@ -54,7 +61,7 @@
     max-width: 300px;
   }
   .searchform__form {
-    max-width: 300px;
+    max-width: 270px;
     flex-direction: column;
     margin: 10px auto;
     overflow: visible;
@@ -63,13 +70,13 @@
   }
 
   .searchform__input {
-    width: 250px;
+    width: 220px;
     border-radius: 30px;
   }
 
   .searchform__button {
     border-radius: 30px;
-    width: 290px;
+    width: 260px;
     margin-top: 10px;
     height: 65px;
   }

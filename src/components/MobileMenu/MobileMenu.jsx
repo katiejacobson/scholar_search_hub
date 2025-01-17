@@ -19,7 +19,7 @@ function MobileMenu({
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   return (
-    <div className={`mobile_menu ${isMenuOpen ? "mobile_menu_open" : ""}`}>
+    <div className={`mobile-menu ${isMenuOpen ? "mobile-menu_open" : ""}`}>
       <div className="mobile-menu__top">
         <img className="mobile-menu__logo" src={logo} alt="Logo" />
         <h1 className="mobile-menu__title">Scholar Search Hub</h1>
@@ -67,7 +67,11 @@ function MobileMenu({
               onClick={handleLogOut}
             >
               {currentUser.name}{" "}
-              <img src={logout} className="mobile-menu__button-image" />
+              <img
+                src={logout}
+                className="mobile-menu__button-image"
+                alt="logout button"
+              />
             </button>
           </div>
         ) : (

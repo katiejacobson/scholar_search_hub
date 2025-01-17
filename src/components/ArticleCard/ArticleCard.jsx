@@ -57,7 +57,7 @@ function ArticleCard({
           id="card__open-article"
           aria-label="open"
         >
-          <a href={item.downloadUrl} target="_blank">
+          <a href={item.downloadUrl} target="_blank" className="card__link">
             Open Article
           </a>
         </button>

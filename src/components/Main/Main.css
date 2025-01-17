@@ -15,7 +15,7 @@
 .cards__text {
   margin-left: 30px;
   font-size: 26px;
-  font-family: "Inter-Bold";
+  font-family: "Inter-Bold", Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -32,6 +32,11 @@
   border-color: #00b1b7;
   border-radius: 30px;
   border-style: solid;
+  cursor: pointer;
+}
+
+.cards__button-show-more:hover {
+  background-color: gray;
   cursor: pointer;
 }
 
