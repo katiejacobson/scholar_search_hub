@@ -45,7 +45,9 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
           />
         </label>
         {errors.title && (
-          <span className="modal__error_visible">{errors.title}</span>
+          <span className="modal__error modal__error_visible">
+            {errors.title}
+          </span>
         )}
       </div>
       <div className="modal__form-field">
@@ -65,7 +67,9 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
           />
         </label>
         {errors.authors && (
-          <span className="modal__error_visible">{errors.authors}</span>
+          <span className="modal__error modal__error_visible">
+            {errors.authors}
+          </span>
         )}
       </div>
       <div className="modal__form-field">
@@ -85,7 +89,9 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
           />
         </label>
         {errors.createdDate && (
-          <span className="modal__error_visible">{errors.createdDate}</span>
+          <span className="modal__error modal__error_visible">
+            {errors.createdDate}
+          </span>
         )}
       </div>
       <div className="modal__form-field">
@@ -118,7 +124,9 @@ function AddArticleModal({ activeModal, closeActiveModal, onAddArticle }) {
           />
         </label>
         {errors.downloadUrl && (
-          <span className="modal__error_visible">{errors.downloadUrl}</span>
+          <span className="modal__error modal__error_visible">
+            {errors.downloadUrl}
+          </span>
         )}
       </div>
       <button

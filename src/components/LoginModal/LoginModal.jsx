@@ -47,7 +47,9 @@ const LoginModal = ({
           />
         </label>
         {errors.email && (
-          <span className="modal__error_visible">{errors.email}</span>
+          <span className="modal__error modal__error_visible">
+            {errors.email}
+          </span>
         )}
       </div>
       <div className="modal__form-field">
@@ -67,7 +69,9 @@ const LoginModal = ({
           />
         </label>
         {errors.password && (
-          <span className="modal__error_visible">{errors.password}</span>
+          <span className="modal__error modal__error_visible">
+            {errors.password}
+          </span>
         )}
       </div>
       <div className="modal__button-container">

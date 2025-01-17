@@ -18,7 +18,8 @@ export const getArticles = (searchterm, APIkey) => {
     {
       method: "GET",
       headers: {
-        "x-cors-api-key": "temp_8e9c0e02e5eeae7d86bfe412f3bf08e5",
+        "x-cors-api-key":
+          "test_8d9b17d760cac3109ee51eccd205cf46161c86b25332695d0c8aca03f07ed177",
         "Content-Type": "application/json",
         Authorization: `Bearer ${APIkey}`,
       },

@@ -28,13 +28,13 @@ function ArticleCard({
   const addButtonClassName = `card__button-add-article ${
     isLoggedIn && !inProfile
       ? "card__button-add-article"
-      : "card__button-add-article_hidden"
+      : "card__button-add-article card__button-add-article_hidden"
   }`;
 
   const deleteButtonClassName = `card__button-delete-article ${
     isLoggedIn && inProfile
       ? "card__button-delete-article"
-      : "card__button-delete-article_hidden"
+      : "card__button-add-article card__button-delete-article_hidden"
   }`;
 
   const logInfo = (info) => {

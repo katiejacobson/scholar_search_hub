@@ -63,7 +63,7 @@ function MobileMenu({
             )}
             <button
               type="button"
-              className="mobile-menu__button_transparent"
+              className="mobile-menu__button mobile-menu__button_transparent"
               onClick={handleLogOut}
             >
               {currentUser.name}{" "}
