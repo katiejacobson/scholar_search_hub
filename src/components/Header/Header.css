@@ -1,0 +1,288 @@
+.header {
+  display: flex;
+}
+
+.header__main-top {
+  display: flex;
+  padding: 32px 0 0px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207, 0.5);
+}
+
+.header__image-top {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/ScholarSearchHubHeader.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  max-height: 576px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1;
+  color: white;
+  width: 100%;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header__logo {
+  height: 100px;
+  width: 100px;
+}
+
+.header__title {
+  font-size: 26px;
+  font-family: "Inter Bold", Arial, sans-serif;
+  color: #ffffff;
+}
+
+.header__login-container {
+}
+
+.header__button {
+  height: 60px;
+  width: 130px;
+  color: #00b1b7;
+  text-align: center;
+  margin-right: 18px;
+  border-color: #00b1b7;
+  border-radius: 30px;
+  border-style: solid;
+}
+
+.header__button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.header__button_transparent {
+  height: 60px;
+  width: 130px;
+  color: #fff;
+  margin-right: 18px;
+  border-color: #fff;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.header__button-image {
+  height: 24px;
+  width: 24px;
+}
+
+.header__loggedin-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.header__loggedin-home {
+  padding-bottom: 20px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207);
+  color: #fff;
+}
+
+.header__loggedin-home:hover {
+  color: gray;
+}
+
+.header__loggedin-home:visited {
+  color: inherit;
+}
+
+.header__loggedin-saved {
+  color: #fff;
+}
+
+.header__loggedin-saved:hover {
+  color: gray;
+}
+
+.header__loggedin-saved:visited {
+  color: inherit;
+}
+
+.header__profile {
+  width: 100%;
+  display: flex;
+  padding: 32px 0 28px;
+}
+
+.header__profile-title {
+  color: #000;
+  font-size: 26px;
+  font-family: "Inter Bold", Arial, sans-serif;
+}
+
+.header__button-profile {
+  height: 60px;
+  width: 130px;
+  color: #00b1b7;
+  text-align: center;
+  margin-right: 18px;
+  border-color: #00b1b7;
+  border-radius: 30px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.header__loggedin-info-profile {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.header__loggedin-home-profile {
+  color: #000;
+}
+
+.header__loggedin-home-profile:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.header__loggedin-home-profile:visited {
+  color: inherit;
+}
+
+.header__loggedin-saved-profile {
+  padding-bottom: 20px;
+  border-bottom: solid;
+  border-color: rgba(207, 207, 207);
+  color: #000;
+}
+
+.header__loggedin-saved-profile:hover {
+  color: gray;
+  cursor: pointer;
+}
+.header__button_transparent-profile {
+  height: 60px;
+  width: 130px;
+  color: #000;
+  margin-right: 18px;
+  border-color: #000;
+  border-radius: 30px;
+  border-style: solid;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.header__button_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 785px) {
+  .header__loggedin-info {
+    gap: 15px;
+  }
+
+  .header__loggedin-info-profile {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .header__button {
+    display: none;
+  }
+
+  .header__button_mobile {
+    display: flex;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-style: none;
+  }
+
+  .header__loggedin-info {
+    display: none;
+  }
+
+  .header__loggedin-info-profile {
+    display: none;
+  }
+
+  .header__profile-title {
+    font-size: 20px;
+  }
+
+  .header__button_mobile {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    border-style: none;
+  }
+
+  .header__button_mobile-image {
+    height: 42px;
+    width: 42px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__image-top {
+    height: 600px;
+  }
+
+  .header__logo {
+    height: 60px;
+    width: 60px;
+  }
+
+  .header__container {
+    margin-left: 20px;
+  }
+
+  .header__title {
+    font-size: 20px;
+  }
+
+  .header__button {
+    display: none;
+  }
+
+  .header__button_mobile {
+    display: flex;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-style: none;
+  }
+
+  .header__loggedin-info {
+    display: none;
+  }
+
+  .header__loggedin-info-profile {
+    display: none;
+  }
+
+  .header__profile-title {
+    font-size: 20px;
+  }
+}

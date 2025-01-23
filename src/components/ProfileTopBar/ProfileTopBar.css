@@ -1,0 +1,23 @@
+.profiletopbar {
+  margin: 15px 60px;
+  max-width: 530px;
+}
+
+.profiletopbar__title {
+  color: rgba(207, 207, 207);
+}
+
+.profiletopbar__text {
+  font-size: 40px;
+}
+
+@media screen and (max-width: 480px) {
+  .profiletopbar {
+    margin: 15px 15px;
+    width: 280px;
+  }
+
+  .profiletopbar__text {
+    font-size: 30px;
+  }
+}
